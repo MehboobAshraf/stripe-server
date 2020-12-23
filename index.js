@@ -43,7 +43,7 @@ app.post("/stripe/charge", cors(), async (req, res) => {
 app.get("/stripe", cors(), async (req, res) => {
   try{
     // const stripes = require('stripe')('pk_test_51Hx7HsKdUGp8fWpueaK23s8WR2MpgKnk2RtVoNaYdpZRmQGmXeaN26MhVnLNguyiSPKtrougJbGpxXharrbMYVzF00ydGwDOSh');
-    const transactions = await stripe.issuing.transactions.list({
+    const transactions = await stripe.paymentIntents.list({
       limit: 30,
     });
     res.status(200).json(transactions)
